@@ -1,0 +1,74 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f8f8f8;
+  color: #333;
+}
+.hero {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(to bottom right, #f7c948, #f7c948 30%, #fff);
+  animation: fadeIn 1s ease-out;
+}
+h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+.highlight {
+  color: #f7c948;
+}
+.cta-button {
+  margin-top: 1rem;
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+  background: #fff;
+}
+.feature {
+  background: #f2f2f2;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+.testimonial {
+  padding: 2rem;
+  font-style: italic;
+  background: #e9e9e9;
+  text-align: center;
+}
+.signup {
+  padding: 2rem;
+  text-align: center;
+  background: #fdfdfd;
+}
+input[type="email"] {
+  padding: 0.5rem;
+  font-size: 1rem;
+  margin-right: 0.5rem;
+}
+button {
+  background: #f7c948;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+footer {
+  padding: 1rem;
+  text-align: center;
+  background: #ddd;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
