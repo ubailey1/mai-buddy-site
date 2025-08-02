@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms of Service - MAI Buddy</title>
-    <meta name="description" content="MAI Buddy Terms of Service - Understanding your rights and responsibilities while using our mental wellness platform.">
+    <title>MAI Buddy - Reflection Journal that Grows with You</title>
+    <meta name="description" content="Gain clarity and calm in minutes with personalized AI-powered support. Your private mental wellness companion.">
     
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤗</text></svg>">
@@ -26,7 +26,7 @@
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             line-height: 1.6;
             color: #2d3748;
-            background: #f7fafc;
+            overflow-x: hidden;
         }
 
         /* ===== NAVIGATION ===== */
@@ -82,125 +82,326 @@
         }
 
         .download-btn {
-            background: rgba(45, 55, 72, 0.9);
+            background: #2d3748;
             color: white;
             padding: 0.75rem 1.5rem;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 15px rgba(45, 55, 72, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 15px rgba(45, 55, 72, 0.3);
         }
 
         .download-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(45, 55, 72, 0.5);
-            background: rgba(45, 55, 72, 1);
+            box-shadow: 0 8px 25px rgba(45, 55, 72, 0.4);
         }
 
-        /* ===== MAIN CONTENT ===== */
-        .main-content {
-            max-width: 800px;
+        /* ===== HERO SECTION ===== */
+        .hero {
+            background: linear-gradient(135deg, #f6d55c 0%, #f4c430 50%, #e6a23c 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 6rem 0 4rem 0;
+        }
+
+        .hero-container {
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 8rem 2rem 4rem 2rem;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
         }
 
-        .page-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .page-title {
-            font-size: 3rem;
+        .hero-content h1 {
+            font-size: 3.5rem;
             font-weight: 700;
             color: #1a202c;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
             font-family: 'Fredoka One', cursive;
         }
 
-        .page-subtitle {
-            font-size: 1.2rem;
+        .hero-content .subtitle {
+            font-size: 1.25rem;
             color: #4a5568;
-            max-width: 600px;
-            margin: 0 auto;
+            margin-bottom: 2.5rem;
+            font-weight: 400;
         }
 
-        .content-card {
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: #2d3748;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 20px rgba(45, 55, 72, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(45, 55, 72, 0.4);
+        }
+
+        .product-hunt-badge {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            color: #2d3748;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .product-hunt-badge:hover {
+            transform: translateY(-2px);
+        }
+
+        .hero-visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .app-mockup {
+            background: transparent;
+            border-radius: 30px;
+            padding: 0;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            height: 300px;
+            position: relative;
+            transform: rotate(-5deg);
+            transition: transform 0.3s ease;
+            overflow: hidden;
+        }
+
+        .app-mockup:hover {
+            transform: rotate(0deg) scale(1.05);
+        }
+
+        .mockup-content {
+            background: transparent;
+            border-radius: 20px;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .character-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+
+        .mockup-emoji {
+            font-size: 3rem;
+        }
+
+        .mockup-text {
+            color: #4a5568;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        /* ===== FEATURES SECTION ===== */
+        .features {
+            background: white;
+            padding: 6rem 0;
+        }
+
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 3rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
             background: white;
             border-radius: 20px;
-            padding: 3rem;
+            padding: 2.5rem;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #f7fafc;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            color: #4a5568;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* ===== SHOWCASE SECTION ===== */
+        .showcase {
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            padding: 6rem 0;
+        }
+
+        .showcase-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .showcase-content h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a202c;
             margin-bottom: 2rem;
         }
 
-        .last-updated {
-            background: linear-gradient(135deg, #f6d55c 0%, #f4c430 100%);
-            color: #2d3748;
-            padding: 1rem 2rem;
+        .showcase-content p {
+            font-size: 1.1rem;
+            color: #4a5568;
+            margin-bottom: 2rem;
+        }
+
+        .checklist {
+            background: white;
             border-radius: 15px;
-            margin-bottom: 3rem;
-            text-align: center;
-            font-weight: 600;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
-        h2 {
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: #1a202c;
-            margin: 2rem 0 1rem 0;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid #e2e8f0;
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid #edf2f7;
         }
 
-        h3 {
-            font-size: 1.3rem;
-            font-weight: 600;
+        .checklist-item:last-child {
+            border-bottom: none;
+        }
+
+        .checkbox {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f6d55c 0%, #e6a23c 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: #2d3748;
-            margin: 1.5rem 0 0.5rem 0;
+            font-weight: bold;
         }
 
-        p {
-            margin-bottom: 1rem;
-            color: #4a5568;
+        .showcase-visual {
+            position: relative;
         }
 
-        ul, ol {
-            margin: 1rem 0 1rem 2rem;
-            color: #4a5568;
+        .emoji-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
         }
 
-        li {
+        .emoji-card {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .emoji-card:hover {
+            transform: scale(1.05);
+        }
+
+        .emoji-card .emoji {
+            font-size: 2rem;
             margin-bottom: 0.5rem;
         }
 
-        .highlight-box {
-            background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%);
-            border-left: 4px solid #e53e3e;
-            padding: 1.5rem;
-            margin: 2rem 0;
-            border-radius: 8px;
+        .emoji-card .label {
+            font-size: 0.9rem;
+            color: #4a5568;
+            font-weight: 500;
         }
 
-        .info-box {
-            background: linear-gradient(135deg, #f0fff4 0%, #e6fffa 100%);
-            border-left: 4px solid #38a169;
-            padding: 1.5rem;
-            margin: 2rem 0;
-            border-radius: 8px;
+        /* ===== TESTIMONIAL SECTION ===== */
+        .testimonial {
+            background: white;
+            padding: 6rem 0;
         }
 
-        .contact-info {
-            background: linear-gradient(135deg, #fffaf0 0%, #fef5e7 100%);
-            border-radius: 15px;
-            padding: 2rem;
-            margin: 2rem 0;
+        .testimonial-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
             text-align: center;
         }
 
-        .contact-info h3 {
-            color: #d69e2e;
-            margin-bottom: 1rem;
+        .testimonial-quote {
+            font-size: 1.5rem;
+            font-style: italic;
+            color: #2d3748;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .testimonial-author {
+            color: #718096;
+            font-weight: 500;
         }
 
         /* ===== FOOTER ===== */
@@ -263,16 +464,34 @@
                 display: none;
             }
 
-            .main-content {
-                padding: 6rem 1rem 4rem 1rem;
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+                padding: 0 1rem;
             }
 
-            .page-title {
+            .hero-content h1 {
                 font-size: 2.5rem;
             }
 
-            .content-card {
-                padding: 2rem;
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .app-mockup {
+                width: 250px;
+                height: 250px;
+            }
+
+            .showcase-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding: 0 1rem;
+            }
+
+            .emoji-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
 
             .footer-container {
@@ -286,6 +505,62 @@
                 justify-content: center;
             }
         }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-card {
+                padding: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .showcase-content h2 {
+                font-size: 2rem;
+            }
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content,
+        .feature-card,
+        .showcase-content {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        /* ===== SCROLL EFFECTS ===== */
+        .scroll-fade {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .scroll-fade.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 
@@ -293,166 +568,192 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="logo"><span class="mai">MAI</span> BUDDY</a>
+            <a href="#home" class="logo"><span class="mai">MAI</span> BUDDY</a>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="support.html">Support</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
                 <li><a href="privacy.html">Privacy</a></li>
-                <li><a href="terms.html">Terms</a></li>
                 <li><a href="#download" class="download-btn">Download</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <div class="page-header">
-            <h1 class="page-title">Terms of Service</h1>
-            <p class="page-subtitle">Understanding your rights and responsibilities while using MAI Buddy's mental wellness platform.</p>
-        </div>
-
-        <div class="last-updated">
-            <strong>Last Updated:</strong> January 15, 2025
-        </div>
-
-        <div class="content-card">
-            <div class="info-box">
-                <h3>👋 Welcome to MAI Buddy</h3>
-                <p><strong>These terms are designed to be clear and fair.</strong> We believe in transparency about how our mental wellness platform works and what you can expect from us. If you have questions about any section, our support team is always here to help.</p>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Reflection Journal that Grows with You</h1>
+                <p class="subtitle">Gain clarity and calm in minutes with personalized AI-powered support.</p>
+                <div class="hero-buttons">
+                    <a href="#download" class="btn-primary">Download Now</a>
+                    <a href="#" class="product-hunt-badge">
+                        🏆 #1 Product of the Day
+                    </a>
+                </div>
             </div>
+            <div class="hero-visual">
+                <div class="app-mockup">
+                    <div class="mockup-content">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23f6d55c;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23e6a23c;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='400' fill='url(%23bg)'/%3E%3Ccircle cx='200' cy='180' r='60' fill='%23fdbcb4'/%3E%3Ccircle cx='185' cy='170' r='8' fill='%23333'/%3E%3Ccircle cx='215' cy='170' r='8' fill='%23333'/%3E%3Cpath d='M180 190 Q200 200 220 190' stroke='%23333' stroke-width='3' fill='none'/%3E%3Cpath d='M160 120 Q200 100 240 120 Q220 140 200 135 Q180 140 160 120' fill='%238B4513'/%3E%3Crect x='180' y='240' width='40' height='80' fill='%23667eea'/%3E%3Crect x='160' y='260' width='20' height='40' fill='%23fdbcb4'/%3E%3Crect x='220' y='260' width='20' height='40' fill='%23fdbcb4'/%3E%3Ctext x='200' y='350' text-anchor='middle' fill='%23333' font-family='Arial' font-size='16'%3EHi there! 😊%3C/text%3E%3C/svg%3E" alt="MAI Buddy Character" class="character-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <h2>1. Acceptance of Terms</h2>
+    <!-- Features Section -->
+    <section id="about" class="features">
+        <div class="features-container">
+            <h2 class="section-title">Your Personal Wellness Companion</h2>
+            <div class="features-grid">
+                <div class="feature-card scroll-fade">
+                    <div class="feature-icon">💬</div>
+                    <h3>Real-Time Emotional Support</h3>
+                    <p>Talk to MAI Buddy like a friend who understands you. Get personalized insights and gentle guidance whenever you need it most.</p>
+                </div>
+                <div class="feature-card scroll-fade">
+                    <div class="feature-icon">📊</div>
+                    <h3>Track Progress & Goals</h3>
+                    <p>View your mood history and personal development charts. Celebrate small wins and understand patterns in your wellness journey.</p>
+                </div>
+                <div class="feature-card scroll-fade">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Private & Secure</h3>
+                    <p>100% encrypted and yours alone. MAI never stores personal data. Your thoughts and feelings remain completely private and secure.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Showcase Section -->
+    <section class="showcase">
+        <div class="showcase-container">
+            <div class="showcase-content scroll-fade">
+                <h2>Simple Daily Check-ins</h2>
+                <p>Start each day with intention and end with reflection. MAI Buddy helps you build healthy mental habits that stick.</p>
+                <div class="checklist">
+                    <div class="checklist-item">
+                        <div class="checkbox">✓</div>
+                        <span>Take 5 deep breaths</span>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checkbox">✓</div>
+                        <span>Write 3 goals for today</span>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checkbox">✓</div>
+                        <span>Message a friend</span>
+                    </div>
+                </div>
+            </div>
+            <div class="showcase-visual scroll-fade">
+                <div class="emoji-grid">
+                    <div class="emoji-card">
+                        <div class="emoji">😊</div>
+                        <div class="label">Happy</div>
+                    </div>
+                    <div class="emoji-card">
+                        <div class="emoji">😔</div>
+                        <div class="label">Sad</div>
+                    </div>
+                    <div class="emoji-card">
+                        <div class="emoji">😌</div>
+                        <div class="label">Peaceful</div>
+                    </div>
+                    <div class="emoji-card">
+                        <div class="emoji">😰</div>
+                        <div class="label">Anxious</div>
+                    </div>
+                    <div class="emoji-card">
+                        <div class="emoji">🤔</div>
+                        <div class="label">Thoughtful</div>
+                    </div>
+                    <div class="emoji-card">
+                        <div class="emoji">💪</div>
+                        <div class="label">Strong</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="testimonial">
+        <div class="testimonial-container scroll-fade">
+            <p class="testimonial-quote">"MAI Buddy helped me open up in ways I didn't think I could. It feels like having a wise, patient friend who's always there to listen."</p>
+            <p class="testimonial-author">— Early Beta Tester</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <div class="footer-container">
+            <div class="footer-logo"><span class="mai">MAI</span> BUDDY</div>
+            <ul class="footer-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="support.html">Support</a></li>
+                <li><a href="privacy.html">Privacy</a></li>
+            </ul>
+            <div class="footer-copyright">
+                © 2025 MAI Buddy. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll fade animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-fade').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Navbar background opacity on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'linear-gradient(135deg, #f6d55c 0%, #f4c430 50%, #e6a23c 100%)';
+            } else {
+                navbar.style.background = 'linear-gradient(135deg, #f6d55c 0%, #f4c430 50%, #e6a23c 100%)';
+            }
+        });
+
+        // Add hover effects to emoji cards
+        document.querySelectorAll('.emoji-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.1) rotate(5deg)';
+            });
             
-            <p>By downloading, accessing, or using MAI Buddy, you agree to be bound by these Terms of Service and our Privacy Policy. If you don't agree to these terms, please don't use our service.</p>
-
-            <p>These terms apply to all users, including:</p>
-            <ul>
-                <li>Individual users seeking mental wellness support</li>
-                <li>Healthcare professionals using our platform</li>
-                <li>Organizations providing MAI Buddy to their members</li>
-            </ul>
-
-            <h2>2. Description of Service</h2>
-
-            <h3>What MAI Buddy Provides</h3>
-            <p>MAI Buddy is a digital mental wellness companion that offers:</p>
-            <ul>
-                <li><strong>AI-Powered Conversations:</strong> Personalized emotional support and guidance</li>
-                <li><strong>Mood Tracking:</strong> Tools to monitor and understand your emotional patterns</li>
-                <li><strong>Journaling:</strong> Private space for reflection and self-expression</li>
-                <li><strong>Progress Analytics:</strong> Insights into your mental wellness journey</li>
-                <li><strong>Crisis Resources:</strong> Quick access to professional mental health resources</li>
-            </ul>
-
-            <h3>What MAI Buddy Is NOT</h3>
-            <div class="highlight-box">
-                <h3>⚠️ Important Limitations</h3>
-                <p>MAI Buddy is <strong>not</strong> a substitute for professional mental healthcare, therapy, medication, or emergency services. Our AI cannot diagnose mental health conditions or provide medical advice. Always consult with qualified healthcare providers for serious mental health concerns.</p>
-            </div>
-
-            <h2>3. User Eligibility and Age Requirements</h2>
-
-            <h3>Age Restrictions</h3>
-            <ul>
-                <li><strong>Under 13:</strong> MAI Buddy is not available to children under 13</li>
-                <li><strong>Ages 13-17:</strong> Requires parental or guardian consent</li>
-                <li><strong>18 and over:</strong> Full access to all features</li>
-            </ul>
-
-            <h3>Account Requirements</h3>
-            <p>To use MAI Buddy, you must:</p>
-            <ul>
-                <li>Provide accurate and complete registration information</li>
-                <li>Maintain the security of your account credentials</li>
-                <li>Notify us immediately of any unauthorized account access</li>
-                <li>Use the service only for lawful purposes</li>
-            </ul>
-
-            <h2>4. Acceptable Use Policy</h2>
-
-            <h3>You May</h3>
-            <ul>
-                <li>Use MAI Buddy for personal mental wellness and self-care</li>
-                <li>Share your progress with healthcare providers</li>
-                <li>Export your personal data at any time</li>
-                <li>Provide feedback to help us improve the service</li>
-            </ul>
-
-            <h3>You May Not</h3>
-            <ul>
-                <li>Use the service to harm yourself or others</li>
-                <li>Share your account with others</li>
-                <li>Attempt to hack, reverse engineer, or damage our systems</li>
-                <li>Use the service for any illegal activities</li>
-                <li>Share or distribute content that violates others' privacy</li>
-                <li>Impersonate others or provide false information</li>
-            </ul>
-
-            <h2>5. Privacy and Data Protection</h2>
-
-            <p>Your privacy is fundamental to our service. Key points:</p>
-            <ul>
-                <li><strong>End-to-End Encryption:</strong> Your personal mental health data is encrypted</li>
-                <li><strong>No Data Selling:</strong> We never sell your personal information</li>
-                <li><strong>Data Control:</strong> You can export or delete your data anytime</li>
-                <li><strong>Transparent Practices:</strong> Our Privacy Policy explains everything in detail</li>
-            </ul>
-
-            <p>For complete details, please review our <a href="privacy.html" style="color: #e6a23c;">Privacy Policy</a>.</p>
-
-            <h2>6. Subscription and Payment Terms</h2>
-
-            <h3>Free Tier</h3>
-            <p>MAI Buddy offers core features at no cost, including:</p>
-            <ul>
-                <li>Basic journaling and mood tracking</li>
-                <li>Limited AI conversations (10 per day)</li>
-                <li>Standard progress insights</li>
-                <li>Crisis resource access</li>
-            </ul>
-
-            <h3>Premium Subscription ($9.99/month)</h3>
-            <ul>
-                <li>Unlimited AI conversations</li>
-                <li>Advanced mood analytics and insights</li>
-                <li>Voice journaling and transcription</li>
-                <li>Priority customer support</li>
-                <li>Data export in multiple formats</li>
-            </ul>
-
-            <h3>Payment and Billing</h3>
-            <ul>
-                <li>Subscriptions automatically renew unless cancelled</li>
-                <li>You can cancel anytime through your account settings</li>
-                <li>Refunds are provided according to app store policies</li>
-                <li>Price changes will be communicated 30 days in advance</li>
-            </ul>
-
-            <h2>7. Intellectual Property Rights</h2>
-
-            <h3>Your Content</h3>
-            <p>You retain ownership of all content you create in MAI Buddy (journal entries, voice notes, etc.). By using our service, you grant us permission to:</p>
-            <ul>
-                <li>Store and process your content to provide the service</li>
-                <li>Use anonymized, aggregated data for service improvements</li>
-                <li>Generate personalized AI responses based on your input</li>
-            </ul>
-
-            <h3>Our Content</h3>
-            <p>MAI Buddy's software, AI models, design, and educational content are protected by intellectual property laws. You may not copy, modify, or distribute our proprietary technology.</p>
-
-            <h2>8. Service Availability and Modifications</h2>
-
-            <h3>Service Availability</h3>
-            <p>We strive for 99.9% uptime but cannot guarantee uninterrupted service. Maintenance, updates, or technical issues may occasionally affect availability.</p>
-
-            <h3>Service Changes</h3>
-            <p>We may modify MAI Buddy to:</p>
-            <ul>
-                <li>Add new features or improve existing ones</li>
-                <li>Comply with legal requirements</li>
-                <li>Address security or privacy concerns</li>
-                <li>Improve user experience</li>
-            </ul>
-
-            <p>Material changes will be communicated through the app and email
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1) rotate(0deg)';
+            });
+        });
+    </script>
+</body>
+</html>
