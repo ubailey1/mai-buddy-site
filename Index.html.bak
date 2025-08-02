@@ -6,7 +6,7 @@
     <title>MAI Buddy - Reflection Journal that Grows with You</title>
     <meta name="description" content="Gain clarity and calm in minutes with personalized AI-powered support. Your private mental wellness companion.">
     
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤗</text></svg>">
+    <link rel="icon" href="images/Bobby.jpg">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -180,12 +180,12 @@
         }
 
         .app-mockup {
-            background: transparent;
+            background: white;
             border-radius: 30px;
-            padding: 0;
+            padding: 1rem;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-            width: 300px;
-            height: 300px;
+            width: 320px;
+            height: auto;
             position: relative;
             transform: rotate(-5deg);
             transition: transform 0.3s ease;
@@ -197,7 +197,6 @@
         }
 
         .mockup-content {
-            background: transparent;
             border-radius: 20px;
             height: 100%;
             width: 100%;
@@ -570,6 +569,7 @@
             <a href="index.html" class="logo"><span class="mai">MAI</span> BUDDY</a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
                 <li><a href="support.html">Support</a></li>
                 <li><a href="privacy.html">Privacy</a></li>
                 <li><a href="#download" class="download-btn">Download</a></li>
@@ -592,11 +592,7 @@
             <div class="hero-visual">
                 <div class="app-mockup">
                     <div class="mockup-content">
-                        <div class="mockup-emoji">🤗</div>
-                        <div class="mockup-text">
-                            <p><strong>How are you feeling today?</strong></p>
-                            <p>Tap to share your thoughts...</p>
-                        </div>
+                        <img src="images/Bobby.jpg" alt="MAI Buddy Character" class="character-image">
                     </div>
                 </div>
             </div>
@@ -679,16 +675,40 @@
 
     <section class="testimonial">
         <div class="testimonial-container scroll-fade">
-            <p class="testimonial-quote">"MAI Buddy helped me open up in ways I didn't think I could. It feels like having a wise, patient friend who's always there to listen."</p>
+            <p class="testimonial-quote">"MAI BUDDY helped me open up in ways I didn’t think I could. It feels like having a wise, patient friend who's always there to listen."</p>
             <p class="testimonial-author">— Early Beta Tester</p>
         </div>
     </section>
     
-    <footer id="contact" class="footer">
+<section id="support" class="features">
+  <div class="features-container">
+    <h2 class="section-title">Support</h2>
+    <div class="features-grid">
+      <div class="feature-card scroll-fade">
+        <h3>Need Help?</h3>
+        <p>If you're experiencing issues or have questions, reach out to our team at <a href="mailto:support@mai-buddy.com">support@mai-buddy.com</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="privacy" class="features">
+  <div class="features-container">
+    <h2 class="section-title">Privacy</h2>
+    <div class="features-grid">
+      <div class="feature-card scroll-fade">
+        <h3>Your Data, Your Control</h3>
+        <p>We take your privacy seriously. MAI Buddy does not store or share your personal data. All conversations are encrypted and remain private to your device unless you choose to back them up manually.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<footer id="contact" class="footer">
         <div class="footer-container">
             <div class="footer-logo"><span class="mai">MAI</span> BUDDY</div>
             <ul class="footer-links">
                 <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
                 <li><a href="support.html">Support</a></li>
                 <li><a href="privacy.html">Privacy</a></li>
             </ul>
