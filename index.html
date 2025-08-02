@@ -82,19 +82,21 @@
         }
 
         .download-btn {
-            background: #2d3748;
+            background: rgba(45, 55, 72, 0.9);
             color: white;
             padding: 0.75rem 1.5rem;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 15px rgba(45, 55, 72, 0.3);
+            box-shadow: 0 4px 15px rgba(45, 55, 72, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .download-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(45, 55, 72, 0.4);
+            box-shadow: 0 8px 25px rgba(45, 55, 72, 0.5);
+            background: rgba(45, 55, 72, 1);
         }
 
         /* ===== HERO SECTION ===== */
@@ -595,7 +597,11 @@
             <div class="hero-visual">
                 <div class="app-mockup">
                     <div class="mockup-content">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23f6d55c;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23e6a23c;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='400' fill='url(%23bg)'/%3E%3Ccircle cx='200' cy='180' r='60' fill='%23fdbcb4'/%3E%3Ccircle cx='185' cy='170' r='8' fill='%23333'/%3E%3Ccircle cx='215' cy='170' r='8' fill='%23333'/%3E%3Cpath d='M180 190 Q200 200 220 190' stroke='%23333' stroke-width='3' fill='none'/%3E%3Cpath d='M160 120 Q200 100 240 120 Q220 140 200 135 Q180 140 160 120' fill='%238B4513'/%3E%3Crect x='180' y='240' width='40' height='80' fill='%23667eea'/%3E%3Crect x='160' y='260' width='20' height='40' fill='%23fdbcb4'/%3E%3Crect x='220' y='260' width='20' height='40' fill='%23fdbcb4'/%3E%3Ctext x='200' y='350' text-anchor='middle' fill='%23333' font-family='Arial' font-size='16'%3EHi there! 😊%3C/text%3E%3C/svg%3E" alt="MAI Buddy Character" class="character-image">
+                        <div class="mockup-emoji">🤗</div>
+                        <div class="mockup-text">
+                            <p><strong>How are you feeling today?</strong></p>
+                            <p>Tap to share your thoughts...</p>
+                        </div>
                     </div>
                 </div>
             </div>
