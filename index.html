@@ -1,62 +1,765 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MAI BUDDY</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAI Buddy - Reflection Journal that Grows with You</title>
+    <meta name="description" content="Gain clarity and calm in minutes with personalized AI-powered support. Your private mental wellness companion.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤗</text></svg>">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fredoka+One:wght@400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ===== RESET & BASE STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            overflow-x: hidden;
+        }
+
+        /* ===== NAVIGATION ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #f6d55c 0%, #f4c430 50%, #e6a23c 100%);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2d3748;
+            text-decoration: none;
+            font-family: 'Fredoka One', cursive;
+        }
+
+        .logo .mai {
+            color: #e6a23c;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #2d3748;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #1a202c;
+        }
+
+        .download-btn {
+            background: rgba(45, 55, 72, 0.9);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(45, 55, 72, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(45, 55, 72, 0.5);
+            background: rgba(45, 55, 72, 1);
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            background: linear-gradient(135deg, #f6d55c 0%, #f4c430 50%, #e6a23c 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 6rem 0 4rem 0;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            font-family: 'Fredoka One', cursive;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.25rem;
+            color: #4a5568;
+            margin-bottom: 2.5rem;
+            font-weight: 400;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: #2d3748;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 20px rgba(45, 55, 72, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(45, 55, 72, 0.4);
+        }
+
+        .product-hunt-badge {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            color: #2d3748;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .product-hunt-badge:hover {
+            transform: translateY(-2px);
+        }
+
+        .hero-visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .app-mockup {
+            background: transparent;
+            border-radius: 30px;
+            padding: 0;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            height: 300px;
+            position: relative;
+            transform: rotate(-5deg);
+            transition: transform 0.3s ease;
+            overflow: hidden;
+        }
+
+        .app-mockup:hover {
+            transform: rotate(0deg) scale(1.05);
+        }
+
+        .mockup-content {
+            background: transparent;
+            border-radius: 20px;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .character-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+
+        .mockup-emoji {
+            font-size: 3rem;
+        }
+
+        .mockup-text {
+            color: #4a5568;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        /* ===== FEATURES SECTION ===== */
+        .features {
+            background: white;
+            padding: 6rem 0;
+        }
+
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 3rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #f7fafc;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            color: #4a5568;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* ===== SHOWCASE SECTION ===== */
+        .showcase {
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            padding: 6rem 0;
+        }
+
+        .showcase-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .showcase-content h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 2rem;
+        }
+
+        .showcase-content p {
+            font-size: 1.1rem;
+            color: #4a5568;
+            margin-bottom: 2rem;
+        }
+
+        .checklist {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid #edf2f7;
+        }
+
+        .checklist-item:last-child {
+            border-bottom: none;
+        }
+
+        .checkbox {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f6d55c 0%, #e6a23c 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2d3748;
+            font-weight: bold;
+        }
+
+        .showcase-visual {
+            position: relative;
+        }
+
+        .emoji-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .emoji-card {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .emoji-card:hover {
+            transform: scale(1.05);
+        }
+
+        .emoji-card .emoji {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .emoji-card .label {
+            font-size: 0.9rem;
+            color: #4a5568;
+            font-weight: 500;
+        }
+
+        /* ===== TESTIMONIAL SECTION ===== */
+        .testimonial {
+            background: white;
+            padding: 6rem 0;
+        }
+
+        .testimonial-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .testimonial-quote {
+            font-size: 1.5rem;
+            font-style: italic;
+            color: #2d3748;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .testimonial-author {
+            color: #718096;
+            font-weight: 500;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: linear-gradient(135deg, #f6d55c 0%, #f4c430 50%, #e6a23c 100%);
+            padding: 3rem 0;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a202c;
+            font-family: 'Fredoka One', cursive;
+        }
+
+        .footer-logo .mai {
+            color: #e6a23c;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: #4a5568;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #1a202c;
+        }
+
+        .footer-copyright {
+            color: #718096;
+            font-size: 0.9rem;
+        }
+
+        /* ===== MOBILE RESPONSIVENESS ===== */
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+                padding: 0 1rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .app-mockup {
+                width: 250px;
+                height: 250px;
+            }
+
+            .showcase-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding: 0 1rem;
+            }
+
+            .emoji-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+                padding: 0 1rem;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-card {
+                padding: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .showcase-content h2 {
+                font-size: 2rem;
+            }
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content,
+        .feature-card,
+        .showcase-content {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        /* ===== SCROLL EFFECTS ===== */
+        .scroll-fade {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .scroll-fade.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
+
 <body>
-  <header class="hero">
+    <!-- Navigation -->
     <nav class="navbar">
-      <div class="logo">MAI BUDDY</div>
-      <ul class="nav-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="support.html">Support</a></li>
-        <li><a href="privacy.html">Privacy</a></li>
-      </ul>
+        <div class="nav-container">
+            <a href="#home" class="logo"><span class="mai">MAI</span> BUDDY</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="privacy.html">Privacy</a></li>
+                <li><a href="#download" class="download-btn">Download</a></li>
+            </ul>
+        </div>
     </nav>
-    <div class="hero-content">
-      <h1><span class="highlight">MAI</span> BUDDY</h1>
-      <p>Your personal AI for emotional support and wellness guidance.</p>
-      <div class="buttons">
-        <a href="https://mai-buddy-xr4i5rcf-4xfi0xcs-030etfs3-18vpjvso-0tfswl8i-6pnddadn-zn0fbyc2-6m8l7kai-gt5ezxu8-fwtncrbt-hcumddrc-jztlrmk5-xbwym248-ps635e8m-cgsfagpg-2xlxcfem-ifj2g9d7.rork.app" class="btn primary">Download</a>
-      </div>
-    </div>
-  </header>
 
-  <section class="features">
-    <div class="feature">
-      <h2>Smart Emotional Support</h2>
-      <p>Real-time responses that adapt to your emotional needs. Whether you're feeling anxious, low, or just need to talk, MAI is here to respond compassionately and intelligently.</p>
-      <img src="img/support.png" alt="Emotional Support Illustration">
-    </div>
-    <div class="feature">
-      <h2>Goal Tracking & Reflection</h2>
-      <p>Set emotional goals, journal your feelings, and monitor your progress over time through visual insights and personalized suggestions.</p>
-      <img src="img/goals.png" alt="Goal Tracking Illustration">
-    </div>
-    <div class="feature">
-      <h2>Private & Secure</h2>
-      <p>We take your privacy seriously. All chats are encrypted and never shared. What you share with MAI stays with MAI.</p>
-      <img src="img/privacy.png" alt="Privacy Shield Illustration">
-    </div>
-  </section>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Reflection Journal that Grows with You</h1>
+                <p class="subtitle">Gain clarity and calm in minutes with personalized AI-powered support.</p>
+                <div class="hero-buttons">
+                    <a href="#download" class="btn-primary">Download Now</a>
+                    <a href="#" class="product-hunt-badge">
+                        🏆 #1 Product of the Day
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="app-mockup">
+                    <div class="mockup-content">
+                        <div class="mockup-emoji">🤗</div>
+                        <div class="mockup-text">
+                            <p><strong>How are you feeling today?</strong></p>
+                            <p>Tap to share your thoughts...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <section class="showcase">
-    <h2>What Makes MAI BUDDY Unique?</h2>
-    <ul>
-      <li>💬 Natural conversation flow with emotional context</li>
-      <li>📝 Journal sync for daily self-reflection</li>
-      <li>📊 Visual mood and goal tracking dashboard</li>
-      <li>🎯 Set personal wellness goals and receive gentle reminders</li>
-      <li>🔒 End-to-end encrypted communication</li>
-    </ul>
-  </section>
+    <!-- Features Section -->
+    <section id="about" class="features">
+        <div class="features-container">
+            <h2 class="section-title">Your Personal Wellness Companion</h2>
+            <div class="features-grid">
+                <div class="feature-card scroll-fade">
+                    <div class="feature-icon">💬</div>
+                    <h3>Real-Time Emotional Support</h3>
+                    <p>Talk to MAI Buddy like a friend who understands you. Get personalized insights and gentle guidance whenever you need it most.</p>
+                </div>
+                <div class="feature-card scroll-fade">
+                    <div class="feature-icon">📊</div>
+                    <h3>Track Progress & Goals</h3>
+                    <p>View your mood history and personal development charts. Celebrate small wins and understand patterns in your wellness journey.</p>
+                </div>
+                <div class="feature-card scroll-fade">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Private & Secure</h3>
+                    <p>100% encrypted and yours alone. MAI never stores personal data. Your thoughts and feelings remain completely private and secure.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <footer>
-    <blockquote>“MAI BUDDY helped me open up in ways I didn’t think I could.” — Early Beta Tester</blockquote>
-  </footer>
+    <!-- Interactive Showcase Section -->
+    <section class="showcase">
+        <div class="showcase-container">
+            <div class="showcase-content scroll-fade">
+                <h2>Simple Daily Check-ins</h2>
+                <p>Start each day with intention and end with reflection. MAI Buddy helps you build healthy mental habits that stick.</p>
+                <div class="checklist">
+                    <div class="checklist-item">
+                        <div class="checkbox">✓</div>
+                        <span>Take 5 deep breaths</span>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checkbox">✓</div>
+                        <span>Write 3 goals for today</span>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checkbox">✓</div>
+                        <span>Message a friend</span>
+                    </div>
+                </div>
+            </div>
+            <div class="showcase-visual scroll-fade">
+                <div class="emoji-grid">
+                    <div class="emoji-card">
+                        <div class="emoji">😊</div>
+                        <div class="label">Happy</div>
+                    </div>
+                    <div class="emoji-card">
+                        <div class="emoji">😔</div>
+                        <div class="label">Sad</div>
+                    </div>
+                    <div class="emoji-card">
+                        <div class="emoji">😌</div>
+                        <div class="label">Peaceful</div>
+                    </div>
+                    <div class="emoji-card">
+                        <div class="emoji">😰</div>
+                        <div class="label">Anxious</div>
+                    </div>
+                    <div class="emoji-card">
+                        <div class="emoji">🤔</div>
+                        <div class="label">Thoughtful</div>
+                    </div>
+                    <div class="emoji-card">
+                        <div class="emoji">💪</div>
+                        <div class="label">Strong</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="testimonial">
+        <div class="testimonial-container scroll-fade">
+            <p class="testimonial-quote">"MAI Buddy helped me open up in ways I didn't think I could. It feels like having a wise, patient friend who's always there to listen."</p>
+            <p class="testimonial-author">— Early Beta Tester</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <div class="footer-container">
+            <div class="footer-logo"><span class="mai">MAI</span> BUDDY</div>
+            <ul class="footer-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="support.html">Support</a></li>
+                <li><a href="privacy.html">Privacy</a></li>
+            </ul>
+            <div class="footer-copyright">
+                © 2025 MAI Buddy. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll fade animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-fade').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Navbar background opacity on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'linear-gradient(135deg, #f6d55c 0%, #f4c430 50%, #e6a23c 100%)';
+            } else {
+                navbar.style.background = 'linear-gradient(135deg, #f6d55c 0%, #f4c430 50%, #e6a23c 100%)';
+            }
+        });
+
+        // Add hover effects to emoji cards
+        document.querySelectorAll('.emoji-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.1) rotate(5deg)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1) rotate(0deg)';
+            });
+        });
+    </script>
 </body>
 </html>
